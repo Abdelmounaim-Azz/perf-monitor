@@ -1,0 +1,13 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.17.1",
+    "farmhash": "^3.2.1",
+    "mongoose": "^5.12.5",
+    "socket.io": "^2.2.0",
+    "socket.io-redis": "^5.2.0"
+  }
+}
