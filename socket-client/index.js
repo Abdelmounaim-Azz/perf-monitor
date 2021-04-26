@@ -40,9 +40,9 @@ function getCpuLoad(){
       const start = cpuAverage();
       setTimeout(()=>{
           const end = cpuAverage();
-          const idleDifference = end.idle - start.idle;
-          const totalDifference = end.total - start.total;
-          const percentageCpu = 100 - Math.floor(100 * idleDifference / totalDifference);
+          const idleDiff = end.idle - start.idle;
+          const totalDiff = end.total - start.total;
+          const percentageCpu = 100 - Math.floor(100 * idleDiff / totalDiff);
           resolve(percentageCpu);
       },100)
   })
