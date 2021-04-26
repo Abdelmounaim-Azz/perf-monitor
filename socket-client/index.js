@@ -18,7 +18,7 @@ function performanceData(){
       resolve({freeMem,totalMem,usedMem,memUseage,osType,upTime,cpuModel,numCores,cpuSpeed,cpuLoad,isActive})
   })
 }
-performanceData.then((allData)=>{
+performanceData().then((allData)=>{
   console.log(allData)
 })
 function cpuAverage(){
