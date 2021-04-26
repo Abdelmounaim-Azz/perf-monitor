@@ -23,11 +23,11 @@ function cpuAverage(){
   const cpus = os.cpus();
   let idleMs = 0;
   let totalMs = 0;
-  cpus.forEach((aCore)=>{
-      for(type in aCore.times){
-          totalMs += aCore.times[type];
+  cpus.forEach((core)=>{
+      for(type in core.times){
+          totalMs += core.times[type];
       }
-      idleMs += aCore.times.idle;
+      idleMs += core.times.idle;
   });
   return {
       idle: idleMs / cpus.length,
