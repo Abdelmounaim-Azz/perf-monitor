@@ -22,6 +22,9 @@ socket.on('connect',()=>{
       socket.emit('perfData',allData)
     })
   },1000)
+  socket.on('disconnect',()=>{
+    clearInterval(perfPayloadInterval)
+  })
 })
 
 function performanceData(){
