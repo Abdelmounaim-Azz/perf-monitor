@@ -20,7 +20,7 @@ socket.on('connect',()=>{
     allData.macAdress=macAdress;
     socket.emit('init',allData)
   }) 
-  //Send performance Data every second to the socket server
+  // Send performance Data every second to the socket server
   let perfPayloadInterval=setInterval(()=>{
     performanceData().then((allData)=>{
       socket.emit('perfData',allData)

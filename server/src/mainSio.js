@@ -14,6 +14,7 @@ const mainSio=(io,socket)=>{
     if(key==="abdAzz:sio-client"){
       //Valid socket client
       socket.join('validSioClient')
+      console.log('client UI joined')
     }
     else if(key==="abdAzz:UInextjs"){
       //valid UI client
