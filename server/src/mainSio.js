@@ -24,7 +24,8 @@ const mainSio=(io,socket)=>{
     }
   })
   socket.on('init',(initData)=>{
-    macA=initData.macAdress
+    macA=initData.macAdress;
+    checkAndBuild(initData);
   })
   socket.on('perfData',(data)=>{
     console.log(data)
