@@ -1,5 +1,4 @@
-const Machine = require('./models/Machine');
-const mongoose = require('mongoose');
+const Machine = require('../models/Machine');
 const checkAndBuild=async (data)=>{
   const machine=await Machine.findOne({macA:data.macAdress});
   if(!machine){
@@ -7,3 +6,4 @@ const checkAndBuild=async (data)=>{
     await newMachine.save();
   }
 }
+module.exports=checkAndBuild;

@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const checkAndBuild=require('./utils/checkAndBuild')
 const start=async ()=>{
   await mongoose.connect('mongodb://127.0.0.1/perfApp', { useNewUrlParser: true,
   useUnifiedTopology: true,
@@ -22,9 +23,9 @@ const mainSio=(io,socket)=>{
       socket.disconnect(true)
     }
   })
-  socket.on('init',(initData)=>{
+  socket.on('init',async (initData)=>{
     macA=initData.macAdress;
-    checkAndBuild(initData);
+    await checkAndBuild(initData);
   })
   socket.on('perfData',(data)=>{
     console.log(data)
