@@ -1,4 +1,4 @@
 const mainSio=(io,socket)=>{
-  console.log('main Socket Here!I have been called')
+  console.log('main Socket Here!',socket.id)
 };
 module.exports=mainSio;
