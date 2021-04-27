@@ -14,6 +14,13 @@ socket.on('connect',()=>{
           break;
       }
   }
+  //Send performance Data every second to the socket server
+  
+  let perfPayloadInterval=setInterval(()=>{
+    performanceData().then((allData)=>{
+      socket.emit('perfData',allData)
+    })
+  },1000)
 })
 
 function performanceData(){
@@ -33,9 +40,7 @@ function performanceData(){
       resolve({freeMem,totalMem,usedMem,memUseage,osType,upTime,cpuModel,numCores,cpuSpeed,cpuLoad,isActive})
   })
 }
-performanceData().then((allData)=>{
-  console.log(allData)
-})
+
 function cpuAverage(){
   const cpus = os.cpus();
   let idleMs = 0;
