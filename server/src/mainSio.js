@@ -28,7 +28,7 @@ const mainSio=(io,socket)=>{
     await checkAndBuild(initData);
   })
   socket.on('perfData',(data)=>{
-    console.log(data)
+    io.to('validUi').emit('data',data)
   })
 };
 module.exports=mainSio;

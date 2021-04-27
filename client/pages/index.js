@@ -4,7 +4,7 @@ import socket from "../utils/socketConn"
 export default function Home() {
   const [perfData,setPerfData]=useState({});
   useEffect(()=>{
-    socket.on('perfData',(data)=>{
+    socket.on('data',(data)=>{
       console.log(data)
     })
   },[])
