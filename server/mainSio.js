@@ -9,6 +9,7 @@ const mainSio=(io,socket)=>{
       //valid UI client
       socket.join('validUi')
     }
+    socket.disconnect(true)
   })
   socket.on('perfData',(data)=>{
     console.log(data)
