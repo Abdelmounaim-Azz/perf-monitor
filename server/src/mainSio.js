@@ -25,7 +25,6 @@ const mainSio=(io,socket)=>{
   })
   socket.on('init',async (initData)=>{
     macA=initData.macAdress;
-    console.log(initData)
     await checkAndBuild(initData);
   })
   socket.on('perfData',(data)=>{
