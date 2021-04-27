@@ -6,8 +6,8 @@ let socket=io('http://localhost:8181');
 
 socket.on('connect',()=>{
   // console.log("I am connected to the server")
-  const netInterface=os.networkInterfaces();
   let macAdress;
+  const netInterface=os.networkInterfaces();
   for(let key in netInterface){
     if(!netInterface[key][0].internal){
       macAdress = netInterface[key][0].mac;
@@ -17,8 +17,9 @@ socket.on('connect',()=>{
   socket.emit('auth','abdAzz:sio-client')
   //init called once
   performanceData().then((allData)=>{
+    allData.macAdress=macAdress;
     socket.emit('init',allData)
-  })
+  }) 
   //Send performance Data every second to the socket server
   let perfPayloadInterval=setInterval(()=>{
     performanceData().then((allData)=>{
