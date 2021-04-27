@@ -18,7 +18,12 @@ const mainSio=(io,socket)=>{
       //valid UI client
       socket.join('validUi')
     }
-    socket.disconnect(true)
+    else{
+      socket.disconnect(true)
+    }
+  })
+  socket.on('init',(initData)=>{
+    console.log(initData)
   })
   socket.on('perfData',(data)=>{
     console.log(data)
