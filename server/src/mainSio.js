@@ -1,3 +1,12 @@
+const mongoose = require('mongoose');
+const start=async ()=>{
+  await mongoose.connect('mongodb://127.0.0.1/perfApp', { useNewUrlParser: true,
+  useUnifiedTopology: true,
+  useCreateIndex: true
+});
+}
+start();
+const Machine = require('./models/Machine');
 const mainSio=(io,socket)=>{
   // console.log('main Socket Here!',socket.id)
   socket.on('auth',(key)=>{
