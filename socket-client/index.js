@@ -1,11 +1,19 @@
 //node js program that gets performance data using os module and send it to the socket server.
 const os =require('os');
 const io=require("socket.io-client");
-let socket=io('http://localhost:8080');
+let socket=io('http://localhost:8181');
 
 
 socket.on('connect',()=>{
-  console.log("I am connected to the server")
+  // console.log("I am connected to the server")
+  const netInterface=os.networkInterfaces();
+  let macAdress;
+  for(let key in netInterface){
+    if(!netInterface[key][0].internal){
+      macAdress = netInterface[key][0].mac;
+          break;
+      }
+  }
 })
 
 function performanceData(){
