@@ -8,6 +8,7 @@ socket.on('connect',()=>{
   // console.log("I am connected to the server")
   let macAdress;
   const netInterface=os.networkInterfaces();
+  console.log(netInterface)
   for(let key in netInterface){
     if(!netInterface[key][0].internal){
       macAdress = netInterface[key][0].mac;

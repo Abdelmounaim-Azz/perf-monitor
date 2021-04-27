@@ -8,6 +8,7 @@ const start=async ()=>{
 }
 start();
 const mainSio=(io,socket)=>{
+  let macA;
   // console.log('main Socket Here!',socket.id)
   socket.on('auth',(key)=>{
     if(key==="abdAzz:sio-client"){
@@ -23,7 +24,7 @@ const mainSio=(io,socket)=>{
     }
   })
   socket.on('init',(initData)=>{
-    console.log(initData)
+    macA=initData.macAdress
   })
   socket.on('perfData',(data)=>{
     console.log(data)
