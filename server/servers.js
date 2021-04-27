@@ -76,6 +76,7 @@ if (cluster.isMaster) {
 		sioMain(io,socket);
 		console.log(`connected to worker: ${cluster.worker.id}`);
     });
+		sioMain(io,null);
 
 	// Listen to messages sent from the master. Ignore everything else.
 	process.on('message', function(message, connection) {
