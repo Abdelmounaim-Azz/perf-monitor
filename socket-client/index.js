@@ -14,6 +14,7 @@ socket.on('connect',()=>{
           break;
       }
   }
+  socket.emit('auth','abdAzz:sio-client')
   //Send performance Data every second to the socket server
   
   let perfPayloadInterval=setInterval(()=>{
