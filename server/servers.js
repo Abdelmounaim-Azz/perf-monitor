@@ -6,6 +6,7 @@ const port = 8080;
 const num_processes = require('os').cpus().length;
 const io_redis = require('socket.io-redis');
 const farmhash = require('farmhash');
+const sioMain=require('./mainSio');
 
 if (cluster.isMaster) {
 	// This stores our workers. We need to keep them to be able to reference
@@ -58,9 +59,6 @@ if (cluster.isMaster) {
 } else {
     // Note we don't use a port here because the master listens on it for us.
     let app = express();
-    // app.use(express.static(__dirname + '/public'));
-    // app.use(helmet());
-    
 	// Don't expose our internal server to the outside world.
     const server = app.listen(0, 'localhost');
     // console.log("Worker listening...");    
@@ -75,7 +73,7 @@ if (cluster.isMaster) {
     // Here you might use Socket.IO middleware for authorization etc.
 	// on connection, send the socket over to our module with socket stuff
     io.on('connection', function(socket) {
-		socketMain(io,socket);
+		sioMain(io,socket);
 		console.log(`connected to worker: ${cluster.worker.id}`);
     });
 
