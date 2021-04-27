@@ -1,7 +1,12 @@
 //node js program that gets performance data using os module and send it to the socket server.
 const os =require('os');
 const io=require("socket.io-client");
-let socket=io('http://localhost:8080')
+let socket=io('http://localhost:8080');
+
+
+socket.on('connect',()=>{
+  console.log("I am connected to the server")
+})
 
 function performanceData(){
   return new Promise(async (resolve, reject)=>{
