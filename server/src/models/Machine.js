@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const machineSchema = new Schema({
-    macA: String,
+    macAdress: String,
     cpuLoad: Number,
     freeMem: Number,
     totalMem: Number,
