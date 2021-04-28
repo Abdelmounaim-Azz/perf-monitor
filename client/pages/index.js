@@ -14,6 +14,6 @@ export default function Home() {
       currData[data.macAdress] = data;
       setPerfData(currData);
     });
-  }, [data]);
+  }, [perfData]);
   return <div className={styles.container}>{sections}</div>;
 }
