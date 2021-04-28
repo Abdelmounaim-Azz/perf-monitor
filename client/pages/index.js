@@ -1,5 +1,4 @@
 import {useState, useEffect} from "react";
-import styles from "../styles/Home.module.css";
 import socket from "../utils/socketConn";
 import {Section} from "../components/Section";
 export default function Home() {
@@ -15,5 +14,5 @@ export default function Home() {
       setPerfData(currData);
     });
   }, [perfData]);
-  return <div className={styles.container}>{sections}</div>;
+  return <div class="container">{sections}</div>;
 }
