@@ -1,8 +1,8 @@
 import {Cpu} from "./Cpu";
-import {Mem} from "./Memory";
+import {Mem} from "./Mem";
 import {Info} from "./Info";
 
-const Section = (props) => {
+export const Section = (props) => {
   const {
     freeMem,
     totalMem,

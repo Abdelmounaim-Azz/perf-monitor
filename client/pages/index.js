@@ -1,7 +1,7 @@
 import {useState, useEffect} from "react";
 import styles from "../styles/Home.module.css";
 import socket from "../utils/socketConn";
-import Section from "../components/Section";
+import {Section} from "../components/Section";
 export default function Home() {
   const [perfData, setPerfData] = useState({});
   let sections = [];
