@@ -1,6 +1,7 @@
 import {useState, useEffect} from "react";
 import socket from "../utils/socketConn";
 import {Section} from "../components/Section";
+import {Title} from "../utils/use-title";
 export default function Home() {
   const [perfData, setPerfData] = useState({});
   let sections = [];
@@ -14,5 +15,10 @@ export default function Home() {
       setPerfData(currData);
     });
   }, [perfData]);
-  return <div class="container">{sections}</div>;
+  return (
+    <>
+      <Title title="Monitor your machine performance in real time." />
+      <div class="container">{sections}</div>
+    </>
+  );
 }
