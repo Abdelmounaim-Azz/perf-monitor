@@ -1,9 +1,13 @@
 import drawCircle from "../utils/canvasLoadAnimation";
-
+import {useEffect, useState} from "react";
 export function Mem(props) {
+  const [canv, setCanv] = useState("");
+  useEffect(() => {
+    const canvas = document.getElementById(`${props.memData.memSectionId}`);
+    setCanv(canvas);
+  }, []);
   const {totalMem, usedMem, memUseage, freeMem} = props.memData;
-  const canvas = document.querySelector(`.${props.memData.memSectionId}`);
-  drawCircle(canvas, memUseage * 100);
+  drawCircle(canv, memUseage * 100);
   const totalMemInGB = ((totalMem / 1073741824) * 100) / 100;
   const freeMemInGB = Math.floor((freeMem / 1073741824) * 100) / 100;
   return (
@@ -11,7 +15,7 @@ export function Mem(props) {
       <h3>Memory Useage</h3>
       <div className="canvas-wrapper">
         <canvas
-          className={props.memData.memWidgetId}
+          id={props.memData.memSectionId}
           width="200"
           height="200"
         ></canvas>

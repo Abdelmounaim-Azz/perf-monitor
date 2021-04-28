@@ -22,7 +22,7 @@ export const Section = (props) => {
   const memSectionId = `mem-section-${macAdress}`;
   const cpu = {cpuLoad, cpuSectionId};
   const mem = {totalMem, usedMem, memUseage, freeMem, memSectionId};
-  const info = {macA, osType, upTime, cpuModel, numCores, cpuSpeed};
+  const info = {macAdress, osType, upTime, cpuModel, numCores, cpuSpeed};
 
   let notActiveDiv = "";
   if (!isActive) {
