@@ -18,7 +18,7 @@ export default function Home() {
   return (
     <>
       <Title title="Monitor your machine performance in real time." />
-      <div class="container">{sections}</div>
+      <div className="container">{sections}</div>
     </>
   );
 }

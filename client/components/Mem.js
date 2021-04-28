@@ -11,7 +11,7 @@ export function Mem(props) {
   const totalMemInGB = ((totalMem / 1073741824) * 100) / 100;
   const freeMemInGB = Math.floor((freeMem / 1073741824) * 100) / 100;
   return (
-    <div class="col-sm-3 mem">
+    <div className="col-sm-3 mem">
       <h3>Memory Useage</h3>
       <div className="canvas-wrapper">
         <canvas
