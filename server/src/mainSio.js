@@ -38,7 +38,7 @@ const mainSio = (io, socket) => {
     io.to("validUi").emit("data", data);
   });
   socket.on("disconnect", () => {
-    Machine.find({macAdress}, (err, docs) => {
+    Machine.find({macAdress: macA}, (err, docs) => {
       if (docs.length > 0) {
         docs[0].isActive = false;
         io.to("validUi").emit("data", docs[0]);

@@ -8,7 +8,7 @@ export function Mem(props) {
   }, []);
   const {totalMem, usedMem, memUseage, freeMem} = props.memData;
   drawCircle(canv, memUseage * 100);
-  const totalMemInGB = ((totalMem / 1073741824) * 100) / 100;
+  const totalMemInGB = Math.floor((totalMem / 1073741824) * 100) / 100;
   const freeMemInGB = Math.floor((freeMem / 1073741824) * 100) / 100;
   return (
     <div className="col-sm-3 mem">
@@ -21,8 +21,8 @@ export function Mem(props) {
         ></canvas>
         <div className="mem-text">{memUseage * 100}%</div>
       </div>
-      <div>Total Memory: {totalMemInGB}gb</div>
-      <div>Free Memory: {freeMemInGB}gb</div>
+      <div>Total Memory: {totalMemInGB}GB</div>
+      <div>Free Memory: {freeMemInGB}GB</div>
     </div>
   );
 }
