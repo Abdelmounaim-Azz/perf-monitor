@@ -37,5 +37,13 @@ const mainSio = (io, socket) => {
   socket.on("perfData", (data) => {
     io.to("validUi").emit("data", data);
   });
+  socket.on("disconnect", () => {
+    Machine.find({macAdress}, (err, docs) => {
+      if (docs.length > 0) {
+        docs[0].isActive = false;
+        io.to("validUi").emit("data", docs[0]);
+      }
+    });
+  });
 };
 module.exports = mainSio;
